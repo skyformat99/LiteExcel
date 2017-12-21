@@ -5,11 +5,17 @@
 #include "XmlParser.h"
 #include "XExt.h"
 #include "OptButtons.h"
+#include "OptFuncImpl.h"
 
-XWindow *win;
-XDialog *dlg;
-XExtPopup *popup;
-XExtMenuItemList *mlist;
+static XWindow *win;
+
+void InitOptTool() {
+	XExtComboBox *fontName = (XExtComboBox*)(win->findById("opt_font_name"));
+	fontName->getExtList()->setModel(new FontsListModel(fontName));
+
+	XExtComboBox *fontSize = (XExtComboBox*)(win->findById("opt_font_size"));
+	fontSize->getExtList()->setModel(new FontsSizeListModel(fontName));
+}
 
 int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int nCmdShow) {
 	// ---- debug -----
@@ -33,7 +39,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdL
 	XAnchorButton::init();
 
 	win = (XWindow *) UIFactory::fastBuild("file://skin/excel.xml", "main-page", NULL);
-	
+	InitOptTool();
 
 	win->show(nCmdShow);
 	win->messageLoop();
