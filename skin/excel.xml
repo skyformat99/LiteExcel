@@ -1,11 +1,12 @@
 #################### main-page ############
 <Window text = "Test Excel" rect = "0 0 1000 700"  >
+	<default class="ExtComboBox" normalImage="file://skin/bombo_box_normal.png 9patch" hoverImage="file://skin/bombo_box_hover.png 9patch" pushImage="file://skin/bombo_box_press.png 9patch"
+		vbarTrack="file://skin_c/ext_vscrollbar_track.bmp" vbarThumb="file://skin_c/ext_vscrollbar_thumb.bmp" hbarTrack="file://skin_c/ext_hscrollbar_track.bmp" 
+		hbarThumb="file://skin_c/ext_hscrollbar_thumb.bmp"  arrowWidth="13"/>
 	<default class="ExtList"  vbarTrack="file://skin_c/ext_vscrollbar_track.bmp" vbarThumb="file://skin_c/ext_vscrollbar_thumb.bmp" hbarTrack="file://skin_c/ext_hscrollbar_track.bmp" hbarThumb="file://skin_c/ext_hscrollbar_thumb.bmp" />
 	<default class="ExtTable"  vbarTrack="file://skin_c/ext_vscrollbar_track.bmp" vbarThumb="file://skin_c/ext_vscrollbar_thumb.bmp" hbarTrack="file://skin_c/ext_hscrollbar_track.bmp" hbarThumb="file://skin_c/ext_hscrollbar_thumb.bmp" />
 	<default class="ExtScroll"  vbarTrack="file://skin_c/ext_vscrollbar_track.bmp" vbarThumb="file://skin_c/ext_vscrollbar_thumb.bmp" hbarTrack="file://skin_c/ext_hscrollbar_track.bmp" hbarThumb="file://skin_c/ext_hscrollbar_thumb.bmp" />
-	<default class="ExtComboBox"  arrowNormal="file://skin_c/ext_combobox_arrow_normal.png" arrowDown="file://skin_c/ext_combobox_arrow_down.png" 
-		vbarTrack="file://skin_c/ext_vscrollbar_track.bmp" vbarThumb="file://skin_c/ext_vscrollbar_thumb.bmp" hbarTrack="file://skin_c/ext_hscrollbar_track.bmp" 
-		hbarThumb="file://skin_c/ext_hscrollbar_thumb.bmp" bgimage="file://skin_c/ext_combobox_bg.bmp"/>
+	
 	<default class="ExtTree"  vbarTrack="file://skin_c/ext_vscrollbar_track.bmp" vbarThumb="file://skin_c/ext_vscrollbar_thumb.bmp" hbarTrack="file://skin_c/ext_hscrollbar_track.bmp" hbarThumb="file://skin_c/ext_hscrollbar_thumb.bmp" />
 	<default class="ExtDatePicker" arrowNormal="file://skin_c/ext_combobox_arrow_normal.png" arrowDown="file://skin_c/ext_combobox_arrow_down.png" bgimage="file://skin_c/ext_combobox_bg.bmp 9patch" />
 	<default class="ExtTextArea" vbarTrack="file://skin_c/ext_vscrollbar_track.bmp" vbarThumb="file://skin_c/ext_vscrollbar_thumb.bmp" />
@@ -17,9 +18,9 @@
 
 
 #################### excel-options ############
-<HLineLayout bgimage = "file://skin/Options_Bar_BG.png repeat-x" rect="0 0 100% 35" padding="10 5 10 5" bgcolor="#cccccc">
-	<ExtComboBox id="opt_font_name" rect="0 0 120 22" readOnly="true" arrowSize="20 15" popupSize="100% 120"/>
-	<ExtComboBox id="opt_font_size" rect="0 0 50 22" readOnly="true" arrowSize="20 15" popupSize="100% 120" />
+<HLineLayout bgimage = "file://skin/Options_Bar_BG.png repeat-x" rect="0 0 100% 35" padding="10 5 10 5" font="size:12; ">
+	<ExtComboBox id="opt_font_name" rect="0 0 120 22" readOnly="true" popupSize="100% 120"/>
+	<ExtComboBox id="opt_font_size" rect="0 0 50 22" readOnly="true" popupSize="100% 120" />
 	
 	<ExtOption id = "opt_font_b" rect = "0 0 23 22" margin="10 0 0 0" normalImage="file://skin/B_Icon.png" hoverImage="file://skin/B_Select_Icon.png" selectImage="file://skin/B_Select_Icon.png" pushImage="file://skin/B_Press_Icon.png"/>
 	<ExtOption id = "opt_font_i" rect = "0 0 24 22" normalImage="file://skin/I_Icon.png" hoverImage="file://skin/I_Select_Icon.png" selectImage="file://skin/I_Select_Icon.png" pushImage="file://skin/I_Press_Icon.png"/>
@@ -28,5 +29,14 @@
 	<ArrowColorButton id = "opt_font_bg" rect = "0 0 34 22" margin="10 0 0 0" emptyColor="true" arrowWidth="10" normalImage="file://skin/BG_Icon.png" hoverImage="file://skin/BG_Select_Left_Icon.png"  pushImage="file://skin/BG_Press_Left_Icon.png" arrowPushImage="file://skin/BG_Press_Right_Icon.png" arrowHoverImage="file://skin/BG_Select_Right_Icon.png"/>
 	<ArrowColorButton id = "opt_font_a" rect = "0 0 33 22" arrowWidth="10" normalImage="file://skin/A_Icon.png" hoverImage="file://skin/A_Select_Left_Icon.png"  pushImage="file://skin/A_Press_Left_Icon.png" arrowPushImage="file://skin/A_Press_Right_Icon.png" arrowHoverImage="file://skin/A_Select_Right_Icon.png"/>
 	
+	<AnchorButton id = "opt_anchor_top" rect = "0 0 23 22" anchor="4" margin="10 0 0 0" normalImage="file://skin/Left_Round_Icon.png" hoverImage="file://skin/Left_Round_Select_Icon.png" selectImage="file://skin/Left_Round_Select_Icon.png" pushImage="file://skin/Left_Round_Press_Icon.png"/>
+	<AnchorButton id = "opt_anchor_vcenter" rect = "0 0 24 22"  anchor="5" normalImage="file://skin/Center_Icon.png" hoverImage="file://skin/Center_Select_Icon.png" selectImage="file://skin/Center_Select_Icon.png" pushImage="file://skin/Center_Press_Icon.png"/>
+	<AnchorButton id = "opt_anchor_bottom" rect = "0 0 22 22" anchor="6" normalImage="file://skin/Right_Round_Icon.png" hoverImage="file://skin/Right_Round_Select_Icon.png" selectImage="file://skin/Right_Round_Select_Icon.png" pushImage="file://skin/Right_Round_Press_Icon.png"/>
+	
+	<AnchorButton id = "opt_anchor_left" rect = "0 0 23 22" anchor="1" margin="10 0 0 0" normalImage="file://skin/Left_Round_Icon.png" hoverImage="file://skin/Left_Round_Select_Icon.png" selectImage="file://skin/Left_Round_Select_Icon.png" pushImage="file://skin/Left_Round_Press_Icon.png"/>
+	<AnchorButton id = "opt_anchor_hcenter" rect = "0 0 24 22"  anchor="2" normalImage="file://skin/Center_Icon.png" hoverImage="file://skin/Center_Select_Icon.png" selectImage="file://skin/Center_Select_Icon.png" pushImage="file://skin/Center_Press_Icon.png"/>
+	<AnchorButton id = "opt_anchor_right" rect = "0 0 22 22" anchor="3" normalImage="file://skin/Right_Round_Icon.png" hoverImage="file://skin/Right_Round_Select_Icon.png" selectImage="file://skin/Right_Round_Select_Icon.png" pushImage="file://skin/Right_Round_Press_Icon.png"/>
+	
+	<ExtButton id = "opt_merge" rect = "0 0 70 22" margin="10 0 0 0" text="ºÏ²¢/²ð·Ö" normalImage="file://skin/Btn_Icon.png 9patch" hoverImage="file://skin/Btn_Select_Icon.png 9patch" selectImage="file://skin/Btn_Select_Icon.png 9patch" pushImage="file://skin/Btn_Press_Icon.png 9patch"/>
 </HLineLayout>
 

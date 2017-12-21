@@ -2,22 +2,6 @@
 #include "XExt.h"
 #include <windef.h>
 
-class XArrowButton : public XExtButton {
-public:
-	XArrowButton(XmlNode *node);
-	virtual bool wndProc(UINT msg, WPARAM wParam, LPARAM lParam, LRESULT *result);
-	static void init();
-	virtual BtnImage getBtnImage();
-protected:
-	bool isPointInArrow(int x, int y);
-	enum {
-		BTN_ARROW_IMG_HOVER = 5,
-		BTN_ARROW_IMG_PUSH = 6
-	};
-	bool mMouseAtArrow;
-	int mArrowWidth;
-};
-
 class XArrowColorButton : public XArrowButton {
 public:
 	XArrowColorButton(XmlNode *node);
@@ -34,5 +18,22 @@ protected:
 	bool mEmptyColor;
 };
 
+class XAnchorButton : public XExtOption {
+public:
+	enum Anchor {
+		ANCHOR_NONE = 0,
+		ANCHOR_LEFT, ANCHOR_HCENTER, ANCHOR_RIGHT,
+		ANCHOR_TOP, ANCHOR_VCENTER, ANCHOR_BOTTOM
+	};
+	XAnchorButton(XmlNode *node);
+	virtual bool wndProc(UINT msg, WPARAM wParam, LPARAM lParam, LRESULT *result);
+	static void init();
+	Anchor getAnchor();
+	void setAnchor(Anchor anchor);
+	virtual ~XAnchorButton();
+protected:
+	HPEN mLinePen;
+	Anchor mAnchor;
+};
 
 

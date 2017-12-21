@@ -4,7 +4,7 @@
 #include <CommCtrl.h>
 #include "XmlParser.h"
 #include "XExt.h"
-#include "XArrowButton.h"
+#include "OptButtons.h"
 
 XWindow *win;
 XDialog *dlg;
@@ -29,8 +29,8 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdL
 	FreeResource(hmm);*/
 
 	UIFactory::init();
-	XArrowButton::init();
 	XArrowColorButton::init();
+	XAnchorButton::init();
 
 	win = (XWindow *) UIFactory::fastBuild("file://skin/excel.xml", "main-page", NULL);
 	
