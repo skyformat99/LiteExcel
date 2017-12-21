@@ -37,6 +37,13 @@
 	<AnchorButton id = "opt_anchor_hcenter" rect = "0 0 24 22"  anchor="2" normalImage="file://skin/Center_Icon.png" hoverImage="file://skin/Center_Select_Icon.png" selectImage="file://skin/Center_Select_Icon.png" pushImage="file://skin/Center_Press_Icon.png"/>
 	<AnchorButton id = "opt_anchor_right" rect = "0 0 22 22" anchor="3" normalImage="file://skin/Right_Round_Icon.png" hoverImage="file://skin/Right_Round_Select_Icon.png" selectImage="file://skin/Right_Round_Select_Icon.png" pushImage="file://skin/Right_Round_Press_Icon.png"/>
 	
-	<ExtButton id = "opt_merge" rect = "0 0 70 22" margin="10 0 0 0" text="合并/拆分" normalImage="file://skin/Btn_Icon.png 9patch" hoverImage="file://skin/Btn_Select_Icon.png 9patch" selectImage="file://skin/Btn_Select_Icon.png 9patch" pushImage="file://skin/Btn_Press_Icon.png 9patch"/>
+	<ExtButton id = "opt_merge" rect = "0 0 62 22" margin="10 0 0 0" text="合并/拆分" color="#15428B" normalImage="file://skin/Btn_Icon.png 9patch" hoverImage="file://skin/Btn_Select_Icon.png 9patch" selectImage="file://skin/Btn_Select_Icon.png 9patch" pushImage="file://skin/Btn_Press_Icon.png 9patch"/>
+	<ExtOption id = "opt_format_brush" rect = "0 0 62 22" margin="10 0 0 0" normalImage="file://skin/Format_Icon.png" hoverImage="file://skin/Format_Hover_Icon.png" selectImage="file://skin/Format_Hover_Icon.png" pushImage="file://skin/Format_Press_Icon.png" />
+	
+	<ExtButton id = "opt_sort_az" rect = "0 0 40 22" margin="10 0 0 0" text="升序" color="#15428B" normalImage="file://skin/Btn_Icon.png 9patch" hoverImage="file://skin/Btn_Select_Icon.png 9patch" selectImage="file://skin/Btn_Select_Icon.png 9patch" pushImage="file://skin/Btn_Press_Icon.png 9patch"/>
+	<ExtButton id = "opt_sort_az" rect = "0 0 40 22" margin="0 0 0 0" text="降序" color="#15428B" normalImage="file://skin/Btn_Icon.png 9patch" hoverImage="file://skin/Btn_Select_Icon.png 9patch" selectImage="file://skin/Btn_Select_Icon.png 9patch" pushImage="file://skin/Btn_Press_Icon.png 9patch"/>
+	<ExtButton id = "opt_sort_az" rect = "0 0 40 22" margin="0 0 0 0" text="筛选" color="#15428B" normalImage="file://skin/Btn_Icon.png 9patch" hoverImage="file://skin/Btn_Select_Icon.png 9patch" selectImage="file://skin/Btn_Select_Icon.png 9patch" pushImage="file://skin/Btn_Press_Icon.png 9patch"/>
+	
+	<ExtButton id = "opt_sort_az" rect = "0 0 40 22" margin="10 0 0 0" text="查找" color="#15428B" normalImage="file://skin/Btn_Icon.png 9patch" hoverImage="file://skin/Btn_Select_Icon.png 9patch" selectImage="file://skin/Btn_Select_Icon.png 9patch" pushImage="file://skin/Btn_Press_Icon.png 9patch"/>
 </HLineLayout>
 
