@@ -34,3 +34,5 @@ protected:
 	bool mEmptyColor;
 };
 
+
+
