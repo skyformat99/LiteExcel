@@ -1,0 +1,12 @@
+*.ico
+*.vcxpro*
+Debug/
+Release/
+ReadMe.*
+targetver.h
+stdafx.*
+CommUI.*
+Resource*
+*.rc
+*.aps
+skin_c/

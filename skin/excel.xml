@@ -1,0 +1,32 @@
+#################### main-page ############
+<Window text = "Test Excel" rect = "0 0 1000 700"  >
+	<default class="ExtList"  vbarTrack="file://skin_c/ext_vscrollbar_track.bmp" vbarThumb="file://skin_c/ext_vscrollbar_thumb.bmp" hbarTrack="file://skin_c/ext_hscrollbar_track.bmp" hbarThumb="file://skin_c/ext_hscrollbar_thumb.bmp" />
+	<default class="ExtTable"  vbarTrack="file://skin_c/ext_vscrollbar_track.bmp" vbarThumb="file://skin_c/ext_vscrollbar_thumb.bmp" hbarTrack="file://skin_c/ext_hscrollbar_track.bmp" hbarThumb="file://skin_c/ext_hscrollbar_thumb.bmp" />
+	<default class="ExtScroll"  vbarTrack="file://skin_c/ext_vscrollbar_track.bmp" vbarThumb="file://skin_c/ext_vscrollbar_thumb.bmp" hbarTrack="file://skin_c/ext_hscrollbar_track.bmp" hbarThumb="file://skin_c/ext_hscrollbar_thumb.bmp" />
+	<default class="ExtComboBox"  arrowNormal="file://skin_c/ext_combobox_arrow_normal.png" arrowDown="file://skin_c/ext_combobox_arrow_down.png" 
+		vbarTrack="file://skin_c/ext_vscrollbar_track.bmp" vbarThumb="file://skin_c/ext_vscrollbar_thumb.bmp" hbarTrack="file://skin_c/ext_hscrollbar_track.bmp" 
+		hbarThumb="file://skin_c/ext_hscrollbar_thumb.bmp" bgimage="file://skin_c/ext_combobox_bg.bmp"/>
+	<default class="ExtTree"  vbarTrack="file://skin_c/ext_vscrollbar_track.bmp" vbarThumb="file://skin_c/ext_vscrollbar_thumb.bmp" hbarTrack="file://skin_c/ext_hscrollbar_track.bmp" hbarThumb="file://skin_c/ext_hscrollbar_thumb.bmp" />
+	<default class="ExtDatePicker" arrowNormal="file://skin_c/ext_combobox_arrow_normal.png" arrowDown="file://skin_c/ext_combobox_arrow_down.png" bgimage="file://skin_c/ext_combobox_bg.bmp 9patch" />
+	<default class="ExtTextArea" vbarTrack="file://skin_c/ext_vscrollbar_track.bmp" vbarThumb="file://skin_c/ext_vscrollbar_thumb.bmp" />
+	
+<AbsLayout id = "main-layout" rect="0  0 100% 100%" font="size:18;" >
+	<include src="file://skin/excel.xml" part="excel-options" />
+</AbsLayout>
+</Window>
+
+
+#################### excel-options ############
+<HLineLayout bgimage = "file://skin/Options_Bar_BG.png repeat-x" rect="0 0 100% 35" padding="10 5 10 5" bgcolor="#cccccc">
+	<ExtComboBox id="opt_font_name" rect="0 0 120 22" readOnly="true" arrowSize="20 15" popupSize="100% 120"/>
+	<ExtComboBox id="opt_font_size" rect="0 0 50 22" readOnly="true" arrowSize="20 15" popupSize="100% 120" />
+	
+	<ExtOption id = "opt_font_b" rect = "0 0 23 22" margin="10 0 0 0" normalImage="file://skin/B_Icon.png" hoverImage="file://skin/B_Select_Icon.png" selectImage="file://skin/B_Select_Icon.png" pushImage="file://skin/B_Press_Icon.png"/>
+	<ExtOption id = "opt_font_i" rect = "0 0 24 22" normalImage="file://skin/I_Icon.png" hoverImage="file://skin/I_Select_Icon.png" selectImage="file://skin/I_Select_Icon.png" pushImage="file://skin/I_Press_Icon.png"/>
+	<ExtOption id = "opt_font_u" rect = "0 0 23 22" normalImage="file://skin/U_Icon.png" hoverImage="file://skin/U_Select_Icon.png" selectImage="file://skin/U_Select_Icon.png" pushImage="file://skin/U_Press_Icon.png"/>
+	
+	<ArrowColorButton id = "opt_font_bg" rect = "0 0 34 22" margin="10 0 0 0" emptyColor="true" arrowWidth="10" normalImage="file://skin/BG_Icon.png" hoverImage="file://skin/BG_Select_Left_Icon.png"  pushImage="file://skin/BG_Press_Left_Icon.png" arrowPushImage="file://skin/BG_Press_Right_Icon.png" arrowHoverImage="file://skin/BG_Select_Right_Icon.png"/>
+	<ArrowColorButton id = "opt_font_a" rect = "0 0 33 22" arrowWidth="10" normalImage="file://skin/A_Icon.png" hoverImage="file://skin/A_Select_Left_Icon.png"  pushImage="file://skin/A_Press_Left_Icon.png" arrowPushImage="file://skin/A_Press_Right_Icon.png" arrowHoverImage="file://skin/A_Select_Right_Icon.png"/>
+	
+</HLineLayout>
+
