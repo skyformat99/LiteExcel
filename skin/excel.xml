@@ -12,15 +12,20 @@
 	<default class="ExtTextArea" vbarTrack="file://skin_c/ext_vscrollbar_track.bmp" vbarThumb="file://skin_c/ext_vscrollbar_thumb.bmp" />
 	
 <AbsLayout id = "main-layout" rect="0  0 100% 100%" font="size:18;" >
-	<include src="file://skin/excel.xml" part="excel-options" />
+	<HLineLayout rect="0 0 100% 45" bgimage="file://skin/Top_Bar_BG.bmp 9patch"  >
+		<ExtLabel rect="0 5 10 35" bgimage="file://skin/Top_Bar_BG_2.bmp 9patch" />
+		<include src="file://skin/excel.xml" part="excel-options" />
+		<ExtLabel rect="0 5 10 35" bgimage="file://skin/Top_Bar_BG_2.bmp 9patch" />
+	</HLineLayout>
 </AbsLayout>
 </Window>
 
 
 #################### excel-options ############
-<HLineLayout bgimage = "file://skin/Options_Bar_BG.png repeat-x" rect="0 0 100% 35" padding="10 5 10 5" font="size:12; ">
+<HLineLayout bgimage = "file://skin/Options_Bar_BG.png repeat-x" rect="0 5 100 35" weight="1" padding="2 5 10 5" font="size:12; ">
 	<ExtComboBox id="opt_font_name" rect="0 0 120 22" readOnly="true" popupSize="100% 120"/>
 	<ExtComboBox id="opt_font_size" rect="0 0 50 22" readOnly="true" popupSize="100% 120" />
+	<ExtIconButton id = "opt_format_brush" rect = "0 0 62 22" margin="10 0 0 0" text="格式刷" color="#15428B" iconRect="2 2 16 16" textRect="19 2 40 18"  icon="file://skin/Brush_Icon.png" normalImage="file://skin/Btn_Icon.png 9patch" hoverImage="file://skin/Btn_Select_Icon.png 9patch" selectImage="file://skin/Btn_Select_Icon.png 9patch" pushImage="file://skin/Btn_Press_Icon.png 9patch" />
 	
 	<ExtOption id = "opt_font_b" rect = "0 0 23 22" margin="10 0 0 0" normalImage="file://skin/B_Icon.png" hoverImage="file://skin/B_Select_Icon.png" selectImage="file://skin/B_Select_Icon.png" pushImage="file://skin/B_Press_Icon.png"/>
 	<ExtOption id = "opt_font_i" rect = "0 0 24 22" normalImage="file://skin/I_Icon.png" hoverImage="file://skin/I_Select_Icon.png" selectImage="file://skin/I_Select_Icon.png" pushImage="file://skin/I_Press_Icon.png"/>
@@ -37,13 +42,12 @@
 	<AnchorButton id = "opt_anchor_hcenter" rect = "0 0 24 22"  anchor="2" normalImage="file://skin/Center_Icon.png" hoverImage="file://skin/Center_Select_Icon.png" selectImage="file://skin/Center_Select_Icon.png" pushImage="file://skin/Center_Press_Icon.png"/>
 	<AnchorButton id = "opt_anchor_right" rect = "0 0 22 22" anchor="3" normalImage="file://skin/Right_Round_Icon.png" hoverImage="file://skin/Right_Round_Select_Icon.png" selectImage="file://skin/Right_Round_Select_Icon.png" pushImage="file://skin/Right_Round_Press_Icon.png"/>
 	
-	<ExtButton id = "opt_merge" rect = "0 0 62 22" margin="10 0 0 0" text="合并/拆分" color="#15428B" normalImage="file://skin/Btn_Icon.png 9patch" hoverImage="file://skin/Btn_Select_Icon.png 9patch" selectImage="file://skin/Btn_Select_Icon.png 9patch" pushImage="file://skin/Btn_Press_Icon.png 9patch"/>
-	<ExtOption id = "opt_format_brush" rect = "0 0 62 22" margin="10 0 0 0" normalImage="file://skin/Format_Icon.png" hoverImage="file://skin/Format_Hover_Icon.png" selectImage="file://skin/Format_Hover_Icon.png" pushImage="file://skin/Format_Press_Icon.png" />
+	<ExtIconButton id = "opt_merge" rect = "0 0 80 22" margin="10 0 0 0" text="合并/拆分" color="#15428B" iconRect="3 3 16 16" textRect="22 2 55 18" icon="file://skin/Merge_Icon.bmp" normalImage="file://skin/Btn_Icon.png 9patch" hoverImage="file://skin/Btn_Select_Icon.png 9patch" selectImage="file://skin/Btn_Select_Icon.png 9patch" pushImage="file://skin/Btn_Press_Icon.png 9patch"/>
 	
-	<ExtButton id = "opt_sort_az" rect = "0 0 40 22" margin="10 0 0 0" text="升序" color="#15428B" normalImage="file://skin/Btn_Icon.png 9patch" hoverImage="file://skin/Btn_Select_Icon.png 9patch" selectImage="file://skin/Btn_Select_Icon.png 9patch" pushImage="file://skin/Btn_Press_Icon.png 9patch"/>
-	<ExtButton id = "opt_sort_az" rect = "0 0 40 22" margin="0 0 0 0" text="降序" color="#15428B" normalImage="file://skin/Btn_Icon.png 9patch" hoverImage="file://skin/Btn_Select_Icon.png 9patch" selectImage="file://skin/Btn_Select_Icon.png 9patch" pushImage="file://skin/Btn_Press_Icon.png 9patch"/>
-	<ExtButton id = "opt_sort_az" rect = "0 0 40 22" margin="0 0 0 0" text="筛选" color="#15428B" normalImage="file://skin/Btn_Icon.png 9patch" hoverImage="file://skin/Btn_Select_Icon.png 9patch" selectImage="file://skin/Btn_Select_Icon.png 9patch" pushImage="file://skin/Btn_Press_Icon.png 9patch"/>
+	<ExtIconButton id = "opt_sort_az" rect = "0 0 26 22" margin="10 0 0 0" text="升序" color="#15428B" iconRect="4 2 18 18" textRectAA="19 2 25 18"  icon="file://skin/Sort_AZ_Icon.png" normalImage="file://skin/Left_Round_Icon.png 9patch" hoverImage="file://skin/Left_Round_Select_Icon.png 9patch" selectImage="file://skin/Left_Round_Select_Icon.png 9patch" pushImage="file://skin/Left_Round_Press_Icon.png 9patch" />
+	<ExtIconButton id = "opt_sort_za" rect = "0 0 26 22"  text="降序" color="#15428B" iconRect="4 2 18 18" textRectAA="19 2 25 18"  icon="file://skin/Sort_ZA_Icon.png" normalImage="file://skin/Center_Icon.png 9patch" hoverImage="file://skin/Center_Select_Icon.png 9patch" selectImage="file://skin/Center_Select_Icon.png 9patch" pushImage="file://skin/Center_Press_Icon.png 9patch" />
+	<ExtIconButton id = "opt_format_brush" rect = "0 0 26 22"  text="筛选" color="#15428B" iconRect="4 2 18 18" textRectAA="19 2 25 18"  icon="file://skin/Filter_Icon.png" normalImage="file://skin/Right_Round_Icon.png 9patch" hoverImage="file://skin/Right_Round_Select_Icon.png 9patch" selectImage="file://skin/Right_Round_Select_Icon.png 9patch" pushImage="file://skin/Right_Round_Press_Icon.png 9patch" />
 	
-	<ExtButton id = "opt_sort_az" rect = "0 0 40 22" margin="10 0 0 0" text="查找" color="#15428B" normalImage="file://skin/Btn_Icon.png 9patch" hoverImage="file://skin/Btn_Select_Icon.png 9patch" selectImage="file://skin/Btn_Select_Icon.png 9patch" pushImage="file://skin/Btn_Press_Icon.png 9patch"/>
+	<ExtIconButton id = "opt_sort_finder" rect = "0 0 26 22" margin="10 0 0 0" color="#15428B" iconRect="4 2 18 18" icon="file://skin/Finder_Icon.png" normalImage="file://skin/Btn_Icon.png 9patch" hoverImage="file://skin/Btn_Select_Icon.png 9patch" selectImage="file://skin/Btn_Select_Icon.png 9patch" pushImage="file://skin/Btn_Press_Icon.png 9patch"/>
 </HLineLayout>
 
