@@ -52,6 +52,15 @@ bool FontsListModel::isMouseTrack() {
 	return true;
 }
 
+FontNameListener::FontNameListener(XExtComboBox *c) {
+	mFontNameComboBox = c;
+}
+void FontNameListener::onEvent(EventType et, void *evtSrc, void *newVal, void *oldVal) {
+	if (et == EVENT_TYPE_CELL_SELECT_RANGE_CHANGE) {
+		// TODO: change combobox value
+	}
+}
+
 FontsSizeListModel::FontsSizeListModel(XExtComboBox *list) {
 	mExtList = list;
 	static int items[] = {9, 10, 11, 12, 14, 16, 18, 20, 24, 26, 28, 30, 34, 38, 40, 46, 56, 66};
@@ -74,4 +83,13 @@ XListModel::ItemData* FontsSizeListModel::getItemData(int item) {
 }
 bool FontsSizeListModel::isMouseTrack() {
 	return true;
+}
+
+FontSizeListener::FontSizeListener(XExtComboBox *c) {
+	mFontSizeComboBox = c;
+}
+void FontSizeListener::onEvent(EventType et, void *evtSrc, void *newVal, void *oldVal) {
+	if (et == EVENT_TYPE_CELL_SELECT_RANGE_CHANGE) {
+		// TODO: change combobox value
+	}
 }

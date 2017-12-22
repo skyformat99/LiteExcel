@@ -2,7 +2,7 @@
 #include "XExt.h"
 #include <windef.h>
 
-class XArrowColorButton : public XArrowButton {
+class XArrowColorButton : public XExtArrowButton {
 public:
 	XArrowColorButton(XmlNode *node);
 	virtual bool wndProc(UINT msg, WPARAM wParam, LPARAM lParam, LRESULT *result);

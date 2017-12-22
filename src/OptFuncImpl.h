@@ -1,6 +1,7 @@
 #pragma once
 #include <windows.h>
 #include "XExt.h"
+#include "Manager.h"
 
 class FontsListModel : public XListModel {
 public:
@@ -14,6 +15,13 @@ protected:
 	LOGFONT *mFonts;
 	int mFontsNum;
 };
+class FontNameListener : public EventListener {
+public:
+	FontNameListener(XExtComboBox *c);
+	virtual void onEvent(EventType et, void *evtSrc, void *newVal, void *oldVal);
+protected:
+	XExtComboBox *mFontNameComboBox;
+};
 
 class FontsSizeListModel : public XListModel {
 public:
@@ -26,4 +34,11 @@ protected:
 	int *mFontSizeArr;
 	int mFontSizeNum;
 	XExtComboBox *mExtList;
+};
+class FontSizeListener : public EventListener {
+public:
+	FontSizeListener(XExtComboBox *c);
+	virtual void onEvent(EventType et, void *evtSrc, void *newVal, void *oldVal);
+protected:
+	XExtComboBox *mFontSizeComboBox;
 };

@@ -5,7 +5,7 @@
 static XComponent *XArrowColorButton_Creator(XmlNode *n) {return new XArrowColorButton(n);}
 static XComponent *XAnchorButton_Creator(XmlNode *n) {return new XAnchorButton(n);}
 
-XArrowColorButton::XArrowColorButton(XmlNode *node) : XArrowButton(node) {
+XArrowColorButton::XArrowColorButton(XmlNode *node) : XExtArrowButton(node) {
 	mSelectColor = RGB(0, 0, 0);
 	mEmptyColor = AttrUtils::parseBool(mNode->getAttrValue("emptyColor"));
 	mSelectColorBrush = NULL;
@@ -50,7 +50,7 @@ bool XArrowColorButton::wndProc(UINT msg, WPARAM wParam, LPARAM lParam, LRESULT 
 		EndPaint(mWnd, &ps);
 		return true;
 	}
-	return XArrowButton::wndProc(msg, wParam, lParam, result);
+	return XExtArrowButton::wndProc(msg, wParam, lParam, result);
 }
 
 void XArrowColorButton::init() {

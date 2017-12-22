@@ -6,15 +6,18 @@
 #include "XExt.h"
 #include "OptButtons.h"
 #include "OptFuncImpl.h"
+#include "Manager.h"
 
 static XWindow *win;
 
 void InitOptTool() {
 	XExtComboBox *fontName = (XExtComboBox*)(win->findById("opt_font_name"));
 	fontName->getExtList()->setModel(new FontsListModel(fontName));
+	EventManager::addEventListener(EVENT_TYPE_CELL_SELECT_RANGE_CHANGE, new FontNameListener(fontName));
 
 	XExtComboBox *fontSize = (XExtComboBox*)(win->findById("opt_font_size"));
 	fontSize->getExtList()->setModel(new FontsSizeListModel(fontName));
+	EventManager::addEventListener(EVENT_TYPE_CELL_SELECT_RANGE_CHANGE, new FontSizeListener(fontSize));
 }
 
 int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int nCmdShow) {
