@@ -33,14 +33,14 @@ void EventManager::sendEvent(EventType et, void *evtSrc, void *newVal, void *old
 	}
 }
 
-void HistoryManager::execDo(Action *action) {
+void HistoryManager::execDo(XAction *action) {
 	if (action == NULL) return;
 	sHistoryMgr.mActions.push_back(action);
 	action->onDo();
 }
-void HistoryManager::execUndo(Action *action) {
+void HistoryManager::execUndo(XAction *action) {
 	if (sHistoryMgr.mActions.size() == 0) return;
-	Action *ac = sHistoryMgr.mActions.at(sHistoryMgr.mActions.size() - 1);
+	XAction *ac = sHistoryMgr.mActions.at(sHistoryMgr.mActions.size() - 1);
 	sHistoryMgr.mActions.erase(sHistoryMgr.mActions.begin() + sHistoryMgr.mActions.size() - 1);
 	ac->onUndo();
 }

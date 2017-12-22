@@ -26,18 +26,19 @@ protected:
 	std::vector<EventListener*> *mListeners[EVENT_TYPE_NUM];
 };
 
-class Action {
+class XAction {
 public:
+	enum {OLD = 0, NEW = 1};
 	virtual void onDo() = 0;
 	virtual void onUndo() = 0;
-	virtual ~Action() {};
+	virtual ~XAction() {};
 };
 
 class HistoryManager {
 public:
-	static void execDo(Action *action);
-	static void execUndo(Action *action);
+	static void execDo(XAction *action);
+	static void execUndo(XAction *action);
 protected:
-	std::vector<Action*> mActions;
+	std::vector<XAction*> mActions;
 };
 

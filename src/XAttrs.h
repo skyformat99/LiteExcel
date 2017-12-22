@@ -28,12 +28,14 @@ protected:
 	int mFontNum, mLocalFontNum;
 };
 
-struct XAnchor {
-	enum HorAnchor {LEFT, HCENTER, RIGHT};
-	enum VerAnchor {TOP, VCENTER, BOTTOM};
-	XAnchor() {mHorAnchor = (short)LEFT; mVerAnchor = (short)VCENTER;}
-	short mHorAnchor;
-	short mVerAnchor;
+enum XHorAlign {ALIGN_LEFT, ALIGN_HCENTER, ALIGN_RIGHT};
+enum XVerAlign {ALIGN_TOP, ALIGN_VCENTER, ALIGN_BOTTOM};
+
+struct XBorder {
+	enum {
+		NONE = 0, LEFT = 1, TOP = 2, RIGHT = 4, BOTTOM = 8, HCENTER = 16, VCENTER = 32
+	};
+	int mBorder;
 };
 
 class XGlobalInfo {
@@ -43,6 +45,9 @@ public:
 	const static int DEF_COLOR = RGB(0, 0, 0);
 	const static int DEF_BGCOLOR = RGB(0xfa, 0xfa, 0xfa);
 	const static int DEF_FONT_SIZE = 12;
+	const static XHorAlign DEF_HOR_ANCHOR = ALIGN_LEFT;
+	const static XVerAlign DEF_VER_ANCHOR = ALIGN_VCENTER;
+
 	static XFont* getDefaultFont();
 };
 
@@ -79,6 +84,8 @@ public:
 	bool hasIntersection(XRange *r);
 	bool isEquals(XRange *r);
 	bool hasSameCells(XRange *r);
+	int getRowSpan();
+	int getColSpan();
 };
 
 class Ref {
@@ -88,6 +95,6 @@ public:
 	void decRef();
 	virtual ~Ref() {}
 protected:
-	virtual void destroy() = 0;
+	virtual void destroy();
 	int mRefCount;
 };

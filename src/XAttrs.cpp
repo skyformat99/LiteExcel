@@ -230,6 +230,19 @@ bool XRange::hasSameCells(XRange *r) {
 	return leftTop() == r->leftTop() && 
 		rightBottom() == r->rightBottom();
 }
+int XRange::getRowSpan() {
+	if (! isValid()) return 0;
+	XPos lt = leftTop();
+	XPos rb = rightBottom();
+	return rb.mRow - lt.mRow + 1;
+}
+int XRange::getColSpan() {
+	if (! isValid()) return 0;
+	XPos lt = leftTop();
+	XPos rb = rightBottom();
+	return rb.mCol - lt.mCol + 1;
+}
+
 //-----------------------------------------------
 Ref::Ref() {
 	mRefCount = 1;
@@ -243,7 +256,10 @@ void Ref::decRef() {
 		destroy();
 	}
 }
-
+void Ref::destroy() {
+	delete this;
+}
+//-----------------------------------------------
 XFont *XGlobalInfo::getDefaultFont() {
 	// TODO:
 	return NULL;
