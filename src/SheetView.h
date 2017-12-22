@@ -18,6 +18,7 @@ protected:
 	int getRowHeight(int row);
 	int getColWidth(int col);
 	virtual void drawCell(HDC dc, int row, int col, XCellModel *cell, RECT *r);
+	void drawText(HDC dc, char *text, RECT *r);
 protected:
 	int mTranslateRow, mTranslateCol; // always >= 0
 	XSheetModel *mSheetModel;

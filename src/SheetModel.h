@@ -2,6 +2,7 @@
 #include <windows.h>
 #include "XAttrs.h"
 #include "Manager.h"
+#include "XString.h"
 
 class XRowHeaderModel;
 class XColHeaderModel;
@@ -23,6 +24,8 @@ public:
 	void setBgColor(COLORREF bg) {mBgColor = bg;}
 	void clearBgColor() {mBgColor = XGlobalInfo::DEF_CELL_BGCOLOR;}
 	bool isBgColorEmpty() {return mBgColor == XGlobalInfo::DEF_CELL_BGCOLOR;}
+	char *getText() {return mText.str();}
+	void setText(const char *text) {mText = text;}
 
 protected:
 	virtual void destroy();
@@ -31,6 +34,12 @@ protected:
 	XSheetModel *mSheet;
 	XFont *mFont;
 	COLORREF mColor, mBgColor;
+	XHorAlign mHorAlign;
+	XVerAlign mVerAlign;
+	XBorder mBorder;
+	bool mAutoLinefeed; // ×Ô¶¯»»ÐÐ
+	XString mText;
+
 	XRowHeaderModel *mRowHeader;
 	XColHeaderModel *mColHeader;
 	// default is 1; 0 means has been merged

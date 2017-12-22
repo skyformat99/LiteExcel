@@ -47,8 +47,9 @@ public:
 	const static int DEF_COLOR = RGB(0, 0, 0);
 	const static int DEF_CELL_BGCOLOR = RGB(0xfa, 0xfa, 0xfa);
 	const static int DEF_FONT_SIZE = 12;
-	const static XHorAlign DEF_HOR_ANCHOR = ALIGN_LEFT;
-	const static XVerAlign DEF_VER_ANCHOR = ALIGN_VCENTER;
+	const static XHorAlign DEF_HOR_ALIGN = ALIGN_LEFT;
+	const static XVerAlign DEF_VER_ALIGN = ALIGN_VCENTER;
+	const static int DEF_BORDER = XBorder::NONE;
 
 	static XFont* getDefaultFont();
 };

@@ -11,6 +11,10 @@ XCellModel::XCellModel(XSheetModel *sh) {
 	mRowHeader = NULL;
 	mColHeader = NULL;
 	mFont = NULL;
+	mHorAlign = XGlobalInfo::DEF_HOR_ALIGN;
+	mVerAlign = XGlobalInfo::DEF_VER_ALIGN;
+	mBorder.mBorder = XGlobalInfo::DEF_BORDER;
+	mAutoLinefeed = true;
 	mRowSpan = mColSpan = 1;
 	mMerger = NULL;
 }

@@ -217,5 +217,15 @@ void XSheetView::drawCell(HDC dc, int row, int col, XCellModel *cell, RECT *r) {
 	if (cell == NULL) {
 		return;
 	}
-	
+	char *text = cell->getText();
+	if (text != NULL && *text != 0) {
+		drawText(dc, text, r);
+	}
+}
+void XSheetView::drawText(HDC dc, char *text, RECT *r) {
+	int flags = 0;
+	RECT rr = *r;
+	rr.left += 2;
+	rr.right -= 2;
+	DrawText(dc, text, -1, &rr, DT_SINGLELINE);
 }
