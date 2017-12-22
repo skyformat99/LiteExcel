@@ -105,6 +105,10 @@ LOGFONT* XFontManager::getLocalFonts(int *num) {
 XPos::XPos() {
 	mRow = mCol = 0;
 }
+XPos::XPos(int row, int col) {
+	mRow = row;
+	mCol = col;
+}
 bool XPos::operator == (const XPos &r2) {
 	return mRow == r2.mRow && mCol == r2.mCol;
 }
@@ -112,15 +116,15 @@ void XPos::toString(char *strBuf) {
 	if (strBuf == NULL) return;
 	*strBuf = 0;
 	char *p = strBuf;
-	int c = mCol;
+	int c = mCol + 1;
 	char tmp[8] = {0};
 	char *t = &tmp[7];
 	while (c > 0) {
 		--t;
-		*t = (c % 26) + 'A';
+		*t = (c % 26) + 'A' - 1;
 		c /= 26;
 	}
-	strcpy(strBuf, tmp);
+	strcpy(strBuf, t);
 	p = strBuf + strlen(strBuf);
 	sprintf(p, "%d", mRow + 1);
 }

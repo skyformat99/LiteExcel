@@ -42,6 +42,8 @@ class XGlobalInfo {
 public:
 	const static int DEF_ROW_HEIGHT = 25;
 	const static int DEF_COL_WIDTH = 80;
+	const static int DEF_ROW_HEADER_WIDTH = 40;
+	const static int DEF_COL_HEADER_HEIGHT = 25;
 	const static int DEF_COLOR = RGB(0, 0, 0);
 	const static int DEF_BGCOLOR = RGB(0xfa, 0xfa, 0xfa);
 	const static int DEF_FONT_SIZE = 12;
@@ -53,6 +55,7 @@ public:
 
 struct XPos {
 	XPos();
+	XPos(int row, int col);
 	int mRow, mCol;
 	inline bool operator == (const XPos &r2);
 	// change to example : A12

@@ -16,6 +16,7 @@
 	
 	<HLineLayout rect="0 0 100% 100" weight="1" >
 		<include src="file://skin/excel.xml" part="left-part" />
+		<AbsLayout rect="0 0 4 100%" bgcolor="#C2D8F0" />
 		<include src="file://skin/excel.xml" part="right-part" />
 	</HLineLayout>
 	
@@ -65,8 +66,10 @@
 </VLineLayout>
 
 #################### right-part ############
-<VLineLayout id = "right-layout" rect="0  0 100 100%"  weight="1" bgcolor="#dddddd" >
-	
+<VLineLayout id = "right-layout" rect="0  0 100 100%"  weight="1" >
+	<Sheet id="my_sheet" rect="0 0 100% 90%" bgcolor="#aa9999" rowHeaderFont="name:Courier New; size:16; weight:500; "
+			colHeaderFont="name:Courier New; size:17; weight:550; "
+			selectAllCorner="file://skin/Sheet_Select_All_Conner.bmp" colHeader="file://skin/Column_Header_BG.png repeat-x"/>
 </VLineLayout>
 
 

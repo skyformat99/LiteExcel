@@ -30,7 +30,9 @@ int XCellModel::getRow() {
 int XCellModel::getCol() {
 	return mColHeader->mCol;
 }
-
+XRange XCellModel::getRange() {
+	return XRange(getRow(), getCol(), getRow() + mRowSpan - 1, getCol() + mColSpan - 1);
+}
 
 //-----------------------------------------------
 XRowHeaderModel::XRowHeaderModel(XSheetModel *sh) : XCellModel(sh) {
@@ -38,10 +40,18 @@ XRowHeaderModel::XRowHeaderModel(XSheetModel *sh) : XCellModel(sh) {
 	mRowHeight = XGlobalInfo::DEF_ROW_HEIGHT;
 	mRowCells = NULL;
 }
+int XRowHeaderModel::getRowHeight() {
+	return mRowHeight;
+}
+
 XColHeaderModel::XColHeaderModel(XSheetModel *sh) : XCellModel(sh) {
 	mCol = 0;
 	mColWidth = XGlobalInfo::DEF_COL_WIDTH;
 }
+int XColHeaderModel::getColWidth() {
+	return mColWidth;
+}
+
 //-----------------------------------------------
 XSheetModel::XSheetModel() {
 	memset(mRowHeaders, 0, sizeof(mRowHeaders));
@@ -119,5 +129,54 @@ XCellModel * XSheetModel::mergeCell(XRange *r) {
 	if (r == NULL) return NULL;
 	XPos lt = r->leftTop();
 	XCellModel *cell = getCellAt(lt.mRow, lt.mCol, true);
-
+	if (cell->getRowSpan() == 0) {
+		// it was a merged cell
+		cell = cell->mMerger;
+	}
+	XRange cur = cell->getRange();
+	cur = cur.unionRange(r);
+	lt = cur.leftTop();
+	XPos rb = cur.rightBottom();
+	XCellModel *merger = getCellAt(lt.mRow, lt.mCol, true);
+	merger->mMerger = NULL;
+	merger->mRowSpan = rb.mRow - lt.mRow + 1;
+	merger->mColSpan = rb.mCol - lt.mCol + 1;
+	for (int i = lt.mRow; i <= rb.mRow; ++i) {
+		for (int j = lt.mCol; j <= rb.mCol; ++j) {
+			if (i == lt.mRow && j == lt.mCol) {
+				continue;
+			}
+			cell = getCellAt(i, j, true);
+			cell->mRowSpan = cell->mColSpan = 0;
+			cell->mMerger = merger;
+		}
+	}
+	return merger;
+}
+void XSheetModel::unmergeCell(XRange *r) {
+	if (r == NULL) return;
+	XPos lt = r->leftTop();
+	XPos rb = r->rightBottom();
+	for (int i = lt.mRow; i <= rb.mRow; ++i) {
+		for (int j = lt.mCol; j <= rb.mCol; ++j) {
+			XCellModel *cell = getCellAt(i, j, true);
+			cell->mRowSpan = cell->mColSpan = 1;
+			cell->mMerger = NULL;
+		}
+	}
+}
+bool XSheetModel::existMergedCell(XRange *r) {
+	if (r == NULL) return false;
+	XPos lt = r->leftTop();
+	XPos rb = r->rightBottom();
+	for (int i = lt.mRow; i <= rb.mRow; ++i) {
+		for (int j = lt.mCol; j <= rb.mCol; ++j) {
+			XCellModel *cell = getCellAt(i, j, false);
+			if (cell == NULL) continue;
+			if (cell->getRowSpan() != 1) {
+				return true;
+			}
+		}
+	}
+	return false;
 }

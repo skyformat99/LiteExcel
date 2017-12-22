@@ -7,6 +7,7 @@
 #include "OptButtons.h"
 #include "OptFuncImpl.h"
 #include "Manager.h"
+#include "SheetView.h"
 
 static XWindow *win;
 XWindow *GetMainWin() {
@@ -43,6 +44,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdL
 	UIFactory::init();
 	ArrowColorButton::init();
 	AnchorButton::init();
+	XSheetView::init();
 
 	win = (XWindow *) UIFactory::fastBuild("file://skin/excel.xml", "main-page", NULL);
 	InitOptTool();

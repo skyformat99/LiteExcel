@@ -16,6 +16,7 @@ public:
 	void setFont(XFont *font) {mFont = font;}
 	int getRowSpan() {return mRowSpan;}
 	int getColSpan() {return mColSpan;}
+	XRange getRange();
 
 protected:
 	virtual void destroy();
@@ -34,6 +35,7 @@ protected:
 class XRowHeaderModel : public XCellModel {
 public:
 	XRowHeaderModel(XSheetModel *sh);
+	int getRowHeight();
 protected:
 	friend class XSheetModel;
 	friend class XCellModel;
@@ -45,6 +47,7 @@ protected:
 class XColHeaderModel : public XCellModel {
 public:
 	XColHeaderModel(XSheetModel *sh);
+	int getColWidth();
 protected:
 	friend class XSheetModel;
 	friend class XCellModel;
@@ -59,6 +62,8 @@ public:
 	XColHeaderModel *getColHeader(int col, bool create);
 	XCellModel *getCellAt(int row, int col, bool create);
 	XCellModel *mergeCell(XRange *r); // return the merger
+	void unmergeCell(XRange *r);
+	bool existMergedCell(XRange *r);
 	virtual ~XSheetModel();
 protected:
 	virtual void destroy();
