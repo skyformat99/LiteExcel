@@ -2,10 +2,10 @@
 #include "XmlParser.h"
 #include "UIFactory.h"
 
-static XComponent *XArrowColorButton_Creator(XmlNode *n) {return new XArrowColorButton(n);}
-static XComponent *XAnchorButton_Creator(XmlNode *n) {return new XAnchorButton(n);}
+static XComponent *XArrowColorButton_Creator(XmlNode *n) {return new ArrowColorButton(n);}
+static XComponent *XAnchorButton_Creator(XmlNode *n) {return new AnchorButton(n);}
 
-XArrowColorButton::XArrowColorButton(XmlNode *node) : XExtArrowButton(node) {
+ArrowColorButton::ArrowColorButton(XmlNode *node) : XExtArrowButton(node) {
 	mSelectColor = RGB(0, 0, 0);
 	mEmptyColor = AttrUtils::parseBool(mNode->getAttrValue("emptyColor"));
 	mSelectColorBrush = NULL;
@@ -13,11 +13,11 @@ XArrowColorButton::XArrowColorButton(XmlNode *node) : XExtArrowButton(node) {
 	mEmptyInnerBrush = CreateSolidBrush(RGB(0xfd, 0xfd, 0xfd));
 }
 
-COLORREF XArrowColorButton::getSelectColor() {
+COLORREF ArrowColorButton::getSelectColor() {
 	return mSelectColor;
 }
 
-void XArrowColorButton::setSelectColor(COLORREF color) {
+void ArrowColorButton::setSelectColor(COLORREF color) {
 	if (mSelectColor != color && mSelectColorBrush != NULL) {
 		DeleteObject(mSelectColorBrush);
 		mSelectColorBrush = NULL;
@@ -25,7 +25,7 @@ void XArrowColorButton::setSelectColor(COLORREF color) {
 	mSelectColor = color;
 }
 
-bool XArrowColorButton::wndProc(UINT msg, WPARAM wParam, LPARAM lParam, LRESULT *result) {
+bool ArrowColorButton::wndProc(UINT msg, WPARAM wParam, LPARAM lParam, LRESULT *result) {
 	if (msg == WM_PAINT) {
 		PAINTSTRUCT ps;
 		HDC dc = BeginPaint(mWnd, &ps);
@@ -53,19 +53,19 @@ bool XArrowColorButton::wndProc(UINT msg, WPARAM wParam, LPARAM lParam, LRESULT 
 	return XExtArrowButton::wndProc(msg, wParam, lParam, result);
 }
 
-void XArrowColorButton::init() {
+void ArrowColorButton::init() {
 	UIFactory::registCreator("ArrowColorButton", XArrowColorButton_Creator);
 }
 
-bool XArrowColorButton::isEmptyColor() {
+bool ArrowColorButton::isEmptyColor() {
 	return mEmptyColor;
 }
 
-void XArrowColorButton::setEmptyColor(bool empty) {
+void ArrowColorButton::setEmptyColor(bool empty) {
 	mEmptyColor = empty;
 }
 
-XArrowColorButton::~XArrowColorButton() {
+ArrowColorButton::~ArrowColorButton() {
 	if (mSelectColorBrush) {
 		DeleteObject(mSelectColorBrush);
 	}
@@ -73,13 +73,13 @@ XArrowColorButton::~XArrowColorButton() {
 	DeleteObject(mEmptyInnerBrush);
 }
 
-XAnchorButton::XAnchorButton(XmlNode *node) : XExtOption(node) {
+AnchorButton::AnchorButton(XmlNode *node) : XExtOption(node) {
 	mAutoSelect = false;
 	mLinePen = CreatePen(PS_SOLID, 1, RGB(0, 0, 0));
 	mAnchor = (Anchor)AttrUtils::parseInt(mNode->getAttrValue("anchor"));
 }
 
-bool XAnchorButton::wndProc(UINT msg, WPARAM wParam, LPARAM lParam, LRESULT *result) {
+bool AnchorButton::wndProc(UINT msg, WPARAM wParam, LPARAM lParam, LRESULT *result) {
 	if (msg == WM_PAINT) {
 		PAINTSTRUCT ps;
 		HDC dc = BeginPaint(mWnd, &ps);
@@ -171,18 +171,18 @@ bool XAnchorButton::wndProc(UINT msg, WPARAM wParam, LPARAM lParam, LRESULT *res
 	return XExtOption::wndProc(msg, wParam, lParam, result);
 }
 
-void XAnchorButton::init() {
+void AnchorButton::init() {
 	UIFactory::registCreator("AnchorButton", XAnchorButton_Creator);
 }
 
-XAnchorButton::Anchor XAnchorButton::getAnchor() {
+AnchorButton::Anchor AnchorButton::getAnchor() {
 	return mAnchor;
 }
 
-void XAnchorButton::setAnchor(Anchor anchor) {
+void AnchorButton::setAnchor(Anchor anchor) {
 	mAnchor = anchor;
 }
 
-XAnchorButton::~XAnchorButton() {
+AnchorButton::~AnchorButton() {
 	DeleteObject(mLinePen);
 }

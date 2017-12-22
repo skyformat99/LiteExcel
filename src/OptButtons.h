@@ -2,35 +2,35 @@
 #include "XExt.h"
 #include <windef.h>
 
-class XArrowColorButton : public XExtArrowButton {
+class ArrowColorButton : public XExtArrowButton {
 public:
-	XArrowColorButton(XmlNode *node);
+	ArrowColorButton(XmlNode *node);
 	virtual bool wndProc(UINT msg, WPARAM wParam, LPARAM lParam, LRESULT *result);
 	static void init();
 	COLORREF getSelectColor();
 	void setSelectColor(COLORREF color);
 	bool isEmptyColor();
 	void setEmptyColor(bool empty);
-	virtual ~XArrowColorButton();
+	virtual ~ArrowColorButton();
 protected:
 	COLORREF mSelectColor;
 	HBRUSH mSelectColorBrush, mEmptyOutBrush, mEmptyInnerBrush;
 	bool mEmptyColor;
 };
 
-class XAnchorButton : public XExtOption {
+class AnchorButton : public XExtOption {
 public:
 	enum Anchor {
 		ANCHOR_NONE = 0,
 		ANCHOR_LEFT, ANCHOR_HCENTER, ANCHOR_RIGHT,
 		ANCHOR_TOP, ANCHOR_VCENTER, ANCHOR_BOTTOM
 	};
-	XAnchorButton(XmlNode *node);
+	AnchorButton(XmlNode *node);
 	virtual bool wndProc(UINT msg, WPARAM wParam, LPARAM lParam, LRESULT *result);
 	static void init();
 	Anchor getAnchor();
 	void setAnchor(Anchor anchor);
-	virtual ~XAnchorButton();
+	virtual ~AnchorButton();
 protected:
 	HPEN mLinePen;
 	Anchor mAnchor;

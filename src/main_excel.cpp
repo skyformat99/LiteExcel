@@ -9,6 +9,9 @@
 #include "Manager.h"
 
 static XWindow *win;
+XWindow *GetMainWin() {
+	return win;
+}
 
 void InitOptTool() {
 	XExtComboBox *fontName = (XExtComboBox*)(win->findById("opt_font_name"));
@@ -38,8 +41,8 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdL
 	FreeResource(hmm);*/
 
 	UIFactory::init();
-	XArrowColorButton::init();
-	XAnchorButton::init();
+	ArrowColorButton::init();
+	AnchorButton::init();
 
 	win = (XWindow *) UIFactory::fastBuild("file://skin/excel.xml", "main-page", NULL);
 	InitOptTool();
