@@ -17,6 +17,12 @@ public:
 	int getRowSpan() {return mRowSpan;}
 	int getColSpan() {return mColSpan;}
 	XRange getRange();
+	COLORREF getColor() {return mColor;}
+	void setColor(COLORREF color) {mColor = color;}
+	COLORREF getBgColor() {return mBgColor;}
+	void setBgColor(COLORREF bg) {mBgColor = bg;}
+	void clearBgColor() {mBgColor = XGlobalInfo::DEF_CELL_BGCOLOR;}
+	bool isBgColorEmpty() {return mBgColor == XGlobalInfo::DEF_CELL_BGCOLOR;}
 
 protected:
 	virtual void destroy();
@@ -64,6 +70,8 @@ public:
 	XCellModel *mergeCell(XRange *r); // return the merger
 	void unmergeCell(XRange *r);
 	bool existMergedCell(XRange *r);
+	int getRowCount();
+	int getColCount();
 	virtual ~XSheetModel();
 protected:
 	virtual void destroy();

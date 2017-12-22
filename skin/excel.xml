@@ -25,7 +25,7 @@
 
 
 #################### tool-options ############
-<VLineLayout rect="0 0 100% 75" padding="0 13 5 5" bgimage = "file://skin/Title_Group_BG.png 9patch" font="size:12; " >
+<VLineLayout rect="0 0 100% 55" padding="0 13 5 5" bgimage = "file://skin/Title_Group_BG.png 9patch" font="size:12; " >
 	<HLineLayout  rect="5 0 100% 35" >
 		<ExtComboBox id="opt_font_name" rect="0 0 120 22" readOnly="true" popupSize="100% 250"/>
 		<ExtComboBox id="opt_font_size" rect="0 0 50 22" readOnly="true" popupSize="100% 250" />
@@ -53,10 +53,9 @@
 		<ExtIconButton id = "opt_filter" rect = "0 0 26 22"   color="#15428B" iconRect="4 2 18 18" textRectAA="19 2 25 18"  icon="file://skin/Filter_Icon.png" normalImage="file://skin/Right_Round_Icon.png 9patch" hoverImage="file://skin/Right_Round_Select_Icon.png 9patch" selectImage="file://skin/Right_Round_Select_Icon.png 9patch" pushImage="file://skin/Right_Round_Press_Icon.png 9patch" />
 		
 		<ExtIconButton id = "opt_sort_finder" rect = "0 0 26 22" margin="10 0 0 0" color="#15428B" iconRect="4 2 18 18" icon="file://skin/Finder_Icon.png" normalImage="file://skin/Btn_Icon.png 9patch" hoverImage="file://skin/Btn_Select_Icon.png 9patch" selectImage="file://skin/Btn_Select_Icon.png 9patch" pushImage="file://skin/Btn_Press_Icon.png 9patch"/>
-	</HLineLayout>
-	<HLineLayout  rect="5 0 100% 25" bgimage="file://skin/Title_Group_BG.png [5 30 10 10] 9patch" >
-		<ExtEdit id="opt_select_cell" enableBorder="true" borderColor="#ABC1DE" focusBorderColor="#A09567" rect="0 0 120 25"/>
-		<ExtEdit id="opt_select_cell_val" enableBorder="true" borderColor="#ABC1DE" focusBorderColor="#A09567" rect="0 0 120 25" weight="1"/>
+		
+		<ExtEdit id="opt_select_cell" enableBorder="true" borderColor="#ABC1DE" focusBorderColor="#A09567" margin="10 0 0 0" rect="0 0 120 25"/>
+		<ExtTextArea id="opt_select_cell_val" enableBorder="true" borderColor="#ABC1DE" focusBorderColor="#A09567" margin="0 0 5 0" rect="0 0 120 50" lineHeight="16" weight="1"/>
 	</HLineLayout>
 </VLineLayout>
 
@@ -67,7 +66,7 @@
 
 #################### right-part ############
 <VLineLayout id = "right-layout" rect="0  0 100 100%"  weight="1" >
-	<Sheet id="my_sheet" rect="0 0 100% 90%" bgcolor="#aa9999" rowHeaderFont="name:Courier New; size:16; weight:500; "
+	<Sheet id="my_sheet" rect="0 0 100% 90%" rowHeaderFont="name:Courier New; size:16; weight:500; "
 			colHeaderFont="name:Courier New; size:17; weight:550; "
 			selectAllCorner="file://skin/Sheet_Select_All_Conner.bmp" colHeader="file://skin/Column_Header_BG.png repeat-x"/>
 </VLineLayout>

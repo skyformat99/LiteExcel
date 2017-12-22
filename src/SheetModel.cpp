@@ -7,7 +7,7 @@
 XCellModel::XCellModel(XSheetModel *sh) {
 	mSheet = sh;
 	mColor = XGlobalInfo::DEF_COLOR;
-	mBgColor = XGlobalInfo::DEF_BGCOLOR;
+	mBgColor = XGlobalInfo::DEF_CELL_BGCOLOR;
 	mRowHeader = NULL;
 	mColHeader = NULL;
 	mFont = NULL;
@@ -179,4 +179,10 @@ bool XSheetModel::existMergedCell(XRange *r) {
 		}
 	}
 	return false;
+}
+int XSheetModel::getRowCount() {
+	return mRowCount;
+}
+int XSheetModel::getColCount() {
+	return mColCount;
 }

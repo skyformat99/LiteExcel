@@ -38,11 +38,13 @@ bool XSheetView::wndProc( UINT msg, WPARAM wParam, LPARAM lParam, LRESULT *resul
 		SelectObject(memDc, mMemBuffer->getHBitmap());
 		drawRowHeader(memDc);
 		drawColHeader(memDc);
+		drawCells(memDc);
 		printf("rect=[%d %d %d %d] \n", ps.rcPaint.left, ps.rcPaint.top, ps.rcPaint.right, ps.rcPaint.bottom);
 		/*BitBlt(dc, ps.rcPaint.left, ps.rcPaint.top, 
 			ps.rcPaint.right - ps.rcPaint.left, ps.rcPaint.bottom - ps.rcPaint.top, 
 			memDc, ps.rcPaint.left, ps.rcPaint.top, SRCCOPY);*/
 		BitBlt(dc, 0, 0, mWidth, mHeight, memDc, 0, 0, SRCCOPY);
+		DeleteObject(memDc);
 		EndPaint(mWnd, &ps);
 		return true;
 	} else if (msg == WM_LBUTTONDOWN) {
@@ -133,4 +135,87 @@ void XSheetView::drawColHeader(HDC dc) {
 		r.left = r.right;
 		x = r.right;
 	}
+}
+void XSheetView::drawCells(HDC dc) {
+	if (mSheetModel == NULL) {
+		return;
+	}
+	RECT r = {0};
+	int y = XGlobalInfo::DEF_COL_HEADER_HEIGHT;
+	for (int i = mTranslateRow; y < mHeight; ++i) {
+		int x = XGlobalInfo::DEF_ROW_HEADER_WIDTH;
+		r.top = y;
+		r.bottom = r.top + getRowHeight(i);
+		for (int j = mTranslateCol; x < mWidth; ++j) {
+			XCellModel *cell = mSheetModel->getCellAt(i, j, false);
+			r.left = x;
+			r.right = r.left + getColWidth(j);
+			x = r.right + 1;
+			if (cell != NULL && cell->getRowSpan() == 0) {
+				// it is a merged cell, don't draw it
+				continue;
+			}
+			drawCell(dc, i, j, cell, &r);
+		}
+		y += getRowHeight(i) + 1;
+	}
+}
+int XSheetView::getCellStartX(int col) {
+	int x = 0;
+	for (int i = mTranslateCol; i < col; ++i) {
+		int w = getColWidth(col);
+		x += w + 1;
+	}
+	return x;
+}
+int XSheetView::getCellStartY(int row) {
+	int y = 0;
+	for (int i = mTranslateRow; i < row; ++i) {
+		int h = getRowHeight(row);
+		y += h + 1;
+	}
+	return y;
+}
+void XSheetView::getCellRectAt(int row, int col, RECT *r) {
+	r->left = getCellStartX(col);
+	r->top = getCellStartY(row);
+	XRowHeaderModel *rowHdr = mSheetModel->getRowHeader(row, false);
+	XColHeaderModel *colHdr = mSheetModel->getColHeader(col, false);
+	int w = colHdr == NULL ? XGlobalInfo::DEF_COL_WIDTH : colHdr->getColWidth();
+	int h = rowHdr == NULL ? XGlobalInfo::DEF_ROW_HEIGHT : rowHdr->getRowHeight();
+	r->right = r->left + w;
+	r->bottom = r->top + h;
+}
+int XSheetView::getRowHeight(int row) {
+	XRowHeaderModel *rowHdr = mSheetModel->getRowHeader(row, false);
+	int h = rowHdr == NULL ? XGlobalInfo::DEF_ROW_HEIGHT : rowHdr->getRowHeight();
+	return h;
+}
+int XSheetView::getColWidth(int col) {
+	XColHeaderModel *colHdr = mSheetModel->getColHeader(col, false);
+	int w = colHdr == NULL ? XGlobalInfo::DEF_COL_WIDTH : colHdr->getColWidth();
+	return w;
+}
+void XSheetView::drawCell(HDC dc, int row, int col, XCellModel *cell, RECT *r) {
+	static HBRUSH bg = CreateSolidBrush(XGlobalInfo::DEF_CELL_BGCOLOR);
+	static HPEN defPen = CreatePen(PS_SOLID, 1, 0xE5D7D0);
+	static HPEN blackPen = CreatePen(PS_SOLID, 1, 0x9999aa);
+
+	if (cell == NULL || cell->isBgColorEmpty()) {
+		FillRect(dc, r, bg);
+	} else {
+		HBRUSH brs = CreateSolidBrush(cell->getBgColor());
+		FillRect(dc, r, brs);
+		DeleteObject(brs);
+	}
+
+	SelectObject(dc, defPen);
+	MoveToEx(dc, r->right, r->top, NULL);
+	LineTo(dc, r->right, r->bottom);
+	MoveToEx(dc, r->left, r->bottom, NULL);
+	LineTo(dc, r->right, r->bottom);
+	if (cell == NULL) {
+		return;
+	}
+	
 }
