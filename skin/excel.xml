@@ -15,9 +15,9 @@
 	<include src="file://skin/excel.xml" part="tool-options" />
 	
 	<HLineLayout rect="0 0 100% 100" weight="1" >
-		<include src="file://skin/excel.xml" part="left-part" />
+		<include part="left-part" />
 		<AbsLayout rect="0 0 4 100%" bgcolor="#C2D8F0" />
-		<include src="file://skin/excel.xml" part="right-part" />
+		<include part="right-part" />
 	</HLineLayout>
 	
 </VLineLayout>

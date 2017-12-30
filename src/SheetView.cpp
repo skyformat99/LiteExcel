@@ -213,7 +213,7 @@ void XSheetView::drawCell(HDC dc, int row, int col, XCellModel *cell, RECT *r) {
 	MoveToEx(dc, r->right, r->top, NULL);
 	LineTo(dc, r->right, r->bottom);
 	MoveToEx(dc, r->left, r->bottom, NULL);
-	LineTo(dc, r->right, r->bottom);
+	LineTo(dc, r->right + 1, r->bottom);
 	if (cell == NULL) {
 		return;
 	}
