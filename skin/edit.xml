@@ -1,0 +1,22 @@
+#################### main-page ############
+<Window text = "Test Excel" rect = "0 0 500 300"  font="size:15;">
+	<default class="ExtComboBox" normalImage="file://skin/bombo_box_normal.png 9patch" hoverImage="file://skin/bombo_box_hover.png 9patch" pushImage="file://skin/bombo_box_press.png 9patch"
+		vbarTrack="file://skin_c/ext_vscrollbar_track.bmp" vbarThumb="file://skin_c/ext_vscrollbar_thumb.bmp" hbarTrack="file://skin_c/ext_hscrollbar_track.bmp" 
+		hbarThumb="file://skin_c/ext_hscrollbar_thumb.bmp"  arrowWidth="13"/>
+	<default class="ExtList"  vbarTrack="file://skin_c/ext_vscrollbar_track.bmp" vbarThumb="file://skin_c/ext_vscrollbar_thumb.bmp" hbarTrack="file://skin_c/ext_hscrollbar_track.bmp" hbarThumb="file://skin_c/ext_hscrollbar_thumb.bmp" />
+	<default class="ExtTable"  vbarTrack="file://skin_c/ext_vscrollbar_track.bmp" vbarThumb="file://skin_c/ext_vscrollbar_thumb.bmp" hbarTrack="file://skin_c/ext_hscrollbar_track.bmp" hbarThumb="file://skin_c/ext_hscrollbar_thumb.bmp" />
+	<default class="ExtScroll"  vbarTrack="file://skin_c/ext_vscrollbar_track.bmp" vbarThumb="file://skin_c/ext_vscrollbar_thumb.bmp" hbarTrack="file://skin_c/ext_hscrollbar_track.bmp" hbarThumb="file://skin_c/ext_hscrollbar_thumb.bmp" />
+	
+	<default class="ExtTree"  vbarTrack="file://skin_c/ext_vscrollbar_track.bmp" vbarThumb="file://skin_c/ext_vscrollbar_thumb.bmp" hbarTrack="file://skin_c/ext_hscrollbar_track.bmp" hbarThumb="file://skin_c/ext_hscrollbar_thumb.bmp" />
+	<default class="ExtDatePicker" arrowNormal="file://skin_c/ext_combobox_arrow_normal.png" arrowDown="file://skin_c/ext_combobox_arrow_down.png" bgimage="file://skin_c/ext_combobox_bg.bmp 9patch" />
+	<default class="ExtTextArea" vbarTrack="file://skin_c/ext_vscrollbar_track.bmp" vbarThumb="file://skin_c/ext_vscrollbar_thumb.bmp" />
+	
+<VLineLayout id = "main-layout" rect="0  0 100% 100%" >
+	<ExtIconButton id = "opt_sort_finder" rect = "10 10 26 22" margin="10 0 0 0" color="#15428B" iconRect="4 2 18 18" icon="file://skin/Finder_Icon.png" normalImage="file://skin/Btn_Icon.png 9patch" hoverImage="file://skin/Btn_Select_Icon.png 9patch" selectImage="file://skin/Btn_Select_Icon.png 9patch" pushImage="file://skin/Btn_Press_Icon.png 9patch"/>
+		
+	<ExtTextArea id="opt_select_cell"  rect="10 50 300 100" bgcolor="#aabb88"/>
+</VLineLayout>
+</Window>
+
+
+

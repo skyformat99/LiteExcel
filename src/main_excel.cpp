@@ -47,8 +47,8 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdL
 	AnchorButton::init();
 	XSheetView::init();
 
-	win = (XWindow *) UIFactory::fastBuild("file://skin/excel.xml", "main-page", NULL);
-	InitOptTool();
+	win = (XWindow *) UIFactory::fastBuild("file://skin/edit.xml", "main-page", NULL);
+	// InitOptTool();
 
 	win->show(nCmdShow);
 	win->messageLoop();
